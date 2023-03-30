@@ -15,7 +15,6 @@ cache_dir = 'tmp'
 #print(tfds.list_builders())
 
 DATASET_NAME = 'quickdraw_bitmap'
-
 dataset, dataset_info = tfds.load(
     name=DATASET_NAME,
     data_dir=cache_dir,
@@ -39,7 +38,7 @@ for class_index in range(num_classes):
 
 print('num_examples: ', num_examples)
 print('image_shape: ', image_shape)
-print('num_classes: ', num_classes) """
+print('num_classes: ', numa_classes) """
 
 def dataset_preview(dataset, image_shape, preview_images_num=100):
     num_cells = math.ceil(math.sqrt(preview_images_num))
