@@ -138,7 +138,7 @@ dataset_train = dataset_batched \
     .prefetch(buffer_size=prefetch_buffer_batches) \
     .repeat()
 
-
+""" 
 for (image_test, label_test) in dataset_test.take(1):
     print('label_test.shape: ', label_test.shape)
     print('image_test.shape: ', image_test.shape)
@@ -178,4 +178,113 @@ mantions_bars = [mentions[class_name] for class_name in mentions]
 plt.bar(mantions_x, mantions_bars)
 plt.xlabel('Class index')
 plt.ylabel('Items per class')
-plt.show()    
+plt.show() 
+ """
+model = tf.keras.models.Sequential()
+
+model.add(tf.keras.layers.Convolution2D(
+    input_shape=image_shape,
+    kernel_size=5,
+    filters=32,
+    padding='same',
+    activation=tf.keras.activations.relu
+))
+model.add(tf.keras.layers.MaxPooling2D(
+    pool_size=2,
+    strides=2
+))
+
+model.add(tf.keras.layers.Convolution2D(
+    kernel_size=3,
+    filters=32,
+    padding='same',
+    activation=tf.keras.activations.relu,
+))
+model.add(tf.keras.layers.MaxPooling2D(
+    pool_size=2,
+    strides=2
+))
+
+model.add(tf.keras.layers.Convolution2D(
+    kernel_size=3,
+    filters=64,
+    padding='same',
+    activation=tf.keras.activations.relu
+))
+model.add(tf.keras.layers.MaxPooling2D(
+    pool_size=2,
+    strides=2
+))
+
+model.add(tf.keras.layers.Flatten())
+
+model.add(tf.keras.layers.Dense(
+    units=512,
+    activation=tf.keras.activations.relu
+))
+
+model.add(tf.keras.layers.Dense(
+    units=num_classes,
+    activation=tf.keras.activations.softmax
+))   
+
+#model.summary()
+
+adam_optimizer = tf.keras.optimizers.Adam(learning_rate=0.003)
+rms_prop_optimizer = tf.keras.optimizers.RMSprop(learning_rate=0.001)
+sgd_optimizer = tf.keras.optimizers.SGD(learning_rate=0.01)
+
+model.compile(
+    optimizer=adam_optimizer,
+    loss=tf.keras.losses.categorical_crossentropy,
+    metrics=['accuracy']
+)
+
+early_stopping_callback = tf.keras.callbacks.EarlyStopping(
+    patience=5,
+    monitor='val_accuracy',
+    restore_best_weights=True,
+    verbose=1
+)
+
+training_history = model.fit(
+    x=dataset_train,
+    epochs=epochs,
+    steps_per_epoch=steps_per_epoch,
+    validation_data=dataset_val,
+    callbacks=[
+        early_stopping_callback
+    ]
+)
+
+# Renders the charts for training accuracy and loss.
+def render_training_history(training_history):
+    loss = training_history.history['loss']
+    val_loss = training_history.history['val_loss']
+
+    accuracy = training_history.history['accuracy']
+    val_accuracy = training_history.history['val_accuracy']
+
+    plt.figure(figsize=(14, 4))
+
+    plt.subplot(1, 2, 1)
+    plt.title('Loss')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.plot(loss, label='Training set')
+    plt.plot(val_loss, label='Test set', linestyle='--')
+    plt.legend()
+    plt.grid(linestyle='--', linewidth=1, alpha=0.5)
+
+    plt.subplot(1, 2, 2)
+    plt.title('Accuracy')
+    plt.xlabel('Epoch')
+    plt.ylabel('Accuracy')
+    plt.plot(accuracy, label='Training set')
+    plt.plot(val_accuracy, label='Test set', linestyle='--')
+    plt.legend()
+    plt.grid(linestyle='--', linewidth=1, alpha=0.5)
+
+    plt.show()
+    
+render_training_history(training_history)    
