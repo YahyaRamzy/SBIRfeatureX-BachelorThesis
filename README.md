@@ -14,10 +14,15 @@ The main objective of this project is to evaluate and compare the effectiveness 
 - Feature extraction from hand-drawn sketches
 - Image retrieval based on extracted features
 
+
+
 ## Demo Video
 
-Check out the [demo video](https://www.youtube.com/watch?v=smrvvCMce6o) to see the project in action!
+Check out the demo video below to see the project in action:
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/smrvvCMce6o" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GqSGGHNZd5Y" frameborder="0" allowfullscreen></iframe>
 
 
 ## Technologies Used
