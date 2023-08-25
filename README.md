@@ -16,7 +16,8 @@ The main objective of this project is to evaluate and compare the effectiveness 
 
 ## Demo Video
 
-Check out the [demo video](Thesis/Others/Demo.mp4) to see the project in action!
+Check out the [demo video](https://www.youtube.com/watch?v=smrvvCMce6o) to see the project in action!
+
 
 
 ## Technologies Used
