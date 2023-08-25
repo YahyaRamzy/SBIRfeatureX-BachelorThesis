@@ -20,9 +20,9 @@ The main objective of this project is to evaluate and compare the effectiveness 
 
 Check out the demo video below to see the project in action:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/smrvvCMce6o" frameborder="0" allowfullscreen></iframe>
+[![Demo Video](https://img.youtube.com/vi/smrvvCMce6o/0.jpg)](https://www.youtube.com/watch?v=smrvvCMce6o)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GqSGGHNZd5Y" frameborder="0" allowfullscreen></iframe>
+[![Demo Video](https://img.youtube.com/vi/GqSGGHNZd5Y/0.jpg)](https://www.youtube.com/watch?v=GqSGGHNZd5Y)
 
 
 ## Technologies Used
