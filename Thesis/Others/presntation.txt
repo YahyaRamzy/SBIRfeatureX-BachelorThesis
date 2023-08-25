@@ -1,0 +1,10 @@
+why?
+Because sketches dont have clear lines and textures plus they can be complex and different from one another because of different drawing styles , no two people will draw the same exact sketch.
+As you can see here these are two different sketches of a dog from the same dataset . You can see the massive difference between the styles of the two sketches . obviously the second sketch is much better and detailed more than the first sketch . 
+Also here we have two sketches for a bicycle from the same dataset as the dog sketches . you can also see here the obvious difference in the drawing style here the first one is very detailed for example the wheel has rims and the pedal is well drawn overall you could say this is a better sketch for a bicycle than the second one which has no details at all.
+so as you can see sketch drawings are very diverse.
+
+
+ So in todays presentation ,  The goal is to provide
+designers and artists with a tool for the creative process that can find related images
+based on their sketches , and so by comparing 2 approaches first the tradiontal machine learning approach  and secondly the transfer learning approach we can analyze the results and see who is more suited for our scenario.
